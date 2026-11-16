@@ -20,11 +20,7 @@
             --border-color: rgba(255, 140, 0, 0.2);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--bg-color);
@@ -39,397 +35,94 @@
 
         /* --- Шапка сайта --- */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px;
-            border-bottom: 1px solid var(--border-color);
-            background: rgba(5, 5, 5, 0.9);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            flex-wrap: wrap;
-            gap: 15px;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 40px; border-bottom: 1px solid var(--border-color);
+            background: rgba(5, 5, 5, 0.9); backdrop-filter: blur(10px);
+            position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 15px;
         }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-main);
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .logo-text {
-            font-family: 'Russo One', sans-serif;
-            font-size: 18px;
-            color: #fff;
-            letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            color: var(--text-muted);
-            font-size: 14px;
-            letter-spacing: 2px;
-        }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-main); }
+        .logo-container { display: flex; align-items: center; justify-content: center; text-align: center; }
+        .logo-text { font-family: 'Russo One', sans-serif; font-size: 18px; color: #fff; letter-spacing: 1px; text-shadow: 0 0 10px rgba(255, 140, 0, 0.5); }
+        .header-right { display: flex; align-items: center; gap: 20px; color: var(--text-muted); font-size: 14px; letter-spacing: 2px; }
 
         /* --- Главный экран --- */
-        .hero {
-            text-align: center;
-            padding: 60px 20px 40px;
-        }
-
+        .hero { text-align: center; padding: 60px 20px 40px; }
         .hero-pretitle {
-            font-family: 'Russo One', sans-serif;
-            font-size: 20px;
-            color: var(--text-main);
-            border: 2px solid var(--orange-bright);
-            border-radius: 30px;
-            display: inline-block;
-            padding: 5px 30px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+            font-family: 'Russo One', sans-serif; font-size: 20px; color: var(--text-main);
+            border: 2px solid var(--orange-bright); border-radius: 30px; display: inline-block;
+            padding: 5px 30px; margin-bottom: 20px; box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
         }
-
         .hero-title {
-            font-family: 'Russo One', sans-serif;
-            font-size: 110px;
-            line-height: 1;
-            margin-bottom: 20px;
+            font-family: 'Russo One', sans-serif; font-size: 110px; line-height: 1; margin-bottom: 20px;
             background: linear-gradient(180deg, #ffb347, #ff8c00, #d35400);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 20px rgba(255, 140, 0, 0.4));
-            text-transform: uppercase;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(255, 140, 0, 0.4)); text-transform: uppercase;
         }
 
         /* --- Номинации --- */
-        .nominations-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Russo One', sans-serif;
-            font-size: 36px;
-            color: var(--orange-bright);
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Контейнер для верхней (главной) номинации */
-        .top-nomination-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-
-        /* Контейнер для остальных номинаций */
-        .bottom-nominations-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 80px;
-        }
-
-        /* Общие стили карточки */
+        .nominations-section { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .section-title { text-align: center; font-family: 'Russo One', sans-serif; font-size: 36px; color: var(--orange-bright); margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .top-nomination-container { display: flex; justify-content: center; margin-bottom: 40px; }
+        .bottom-nominations-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-bottom: 80px; }
+        
         .nomination-card {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: rgba(255, 140, 0, 0.03);
-            padding: 30px 20px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 140, 0, 0.1);
-            transition: 0.3s;
-            width: 100%;
-            max-width: 320px; /* Ширина карточек */
+            text-align: center; display: flex; flex-direction: column; align-items: center;
+            background: rgba(255, 140, 0, 0.03); padding: 30px 20px; border-radius: 15px;
+            border: 1px solid rgba(255, 140, 0, 0.1); transition: 0.3s; width: 100%; max-width: 320px;
         }
-
-        .nomination-card:hover {
-            border-color: rgba(255, 140, 0, 0.4);
-            background: rgba(255, 140, 0, 0.05);
-        }
-
-        /* Верхняя карточка делаем чуть шире и заметнее */
-        .top-nomination-container .nomination-card {
-            max-width: 400px; 
-            border-color: rgba(255, 140, 0, 0.3);
-            box-shadow: 0 0 20px rgba(255, 140, 0, 0.1);
-        }
-
-        .icon-placeholder {
-            font-size: 70px;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 15px rgba(255, 50, 0, 0.6));
-        }
-
-        .top-nomination-container .icon-placeholder {
-            font-size: 90px; /* Иконка сверху чуть больше */
-        }
-
-        .nomination-title {
-            font-family: 'Russo One', sans-serif;
-            font-size: 20px;
-            color: var(--orange-bright);
-            margin-bottom: 25px;
-            min-height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .top-nomination-container .nomination-title {
-            font-size: 24px; /* Заголовок сверху крупнее */
-        }
+        .nomination-card:hover { border-color: rgba(255, 140, 0, 0.4); background: rgba(255, 140, 0, 0.05); }
+        
+        .top-nomination-container .nomination-card { max-width: 400px; border-color: rgba(255, 140, 0, 0.3); box-shadow: 0 0 20px rgba(255, 140, 0, 0.1); }
+        .icon-placeholder { font-size: 70px; margin-bottom: 15px; filter: drop-shadow(0 0 15px rgba(255, 50, 0, 0.6)); }
+        .top-nomination-container .icon-placeholder { font-size: 90px; }
+        .nomination-title { font-family: 'Russo One', sans-serif; font-size: 20px; color: var(--orange-bright); margin-bottom: 25px; min-height: 50px; display: flex; align-items: center; justify-content: center; }
+        .top-nomination-container .nomination-title { font-size: 24px; }
 
         /* --- Огненная кнопка --- */
         .vote-btn {
-            background: linear-gradient(180deg, #ffcc00, #ff3300, #800000);
-            color: white;
-            font-family: 'Russo One', sans-serif;
-            font-size: 14px;
-            padding: 15px 30px;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
+            background: linear-gradient(180deg, #ffcc00, #ff3300, #800000); color: white;
+            font-family: 'Russo One', sans-serif; font-size: 14px; padding: 15px 30px; border: none;
+            cursor: pointer; text-transform: uppercase; letter-spacing: 1px; position: relative;
             clip-path: polygon(15% 0, 85% 0, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
-            transition: all 0.3s;
-            box-shadow: 0 0 20px rgba(255, 50, 0, 0.5);
-            width: 100%;
-            max-width: 220px;
+            transition: all 0.3s; box-shadow: 0 0 20px rgba(255, 50, 0, 0.5); width: 100%; max-width: 220px;
         }
+        .vote-btn:hover:not(:disabled) { transform: scale(1.05); filter: brightness(1.2); }
+        .vote-btn:disabled { background: linear-gradient(180deg, #444, #222); box-shadow: none; cursor: not-allowed; color: #888; clip-path: none; border-radius: 8px; }
 
-        .vote-btn:hover:not(:disabled) {
-            transform: scale(1.05);
-            filter: brightness(1.2);
-        }
-
-        .vote-btn:disabled {
-            background: linear-gradient(180deg, #444, #222);
-            box-shadow: none;
-            cursor: not-allowed;
-            color: #888;
-            clip-path: none;
-            border-radius: 8px;
-        }
-
-        /* Текст результата */
-        .vote-result {
-            margin-top: 15px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--orange-bright);
-            min-height: 20px;
-            text-shadow: 0 0 5px rgba(255, 140, 0, 0.4);
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
+        /* Текст результата и аватарка */
+        .vote-result { margin-top: 15px; font-size: 14px; font-weight: 600; color: var(--orange-bright); min-height: 20px; text-shadow: 0 0 5px rgba(255, 140, 0, 0.4); opacity: 0; transition: opacity 0.5s ease-in-out; }
         .vote-result.show { opacity: 1; }
-
-        /* Аватарка */
-        .voted-avatar-container {
-            margin-top: 15px;
-            display: none;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .voted-avatar-container.show {
-            display: flex;
-            opacity: 1;
-        }
-
-        .voted-avatar {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--orange-bright);
-            box-shadow: 0 0 15px rgba(255, 140, 0, 0.8);
-            background-color: #111;
-            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0); }
-            100% { transform: scale(1); }
-        }
+        .voted-avatar-container { margin-top: 15px; display: none; justify-content: center; opacity: 0; transition: opacity 0.5s ease-in-out; }
+        .voted-avatar-container.show { display: flex; opacity: 1; }
+        .voted-avatar { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 3px solid var(--orange-bright); box-shadow: 0 0 15px rgba(255, 140, 0, 0.8); background-color: #111; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        @keyframes popIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
 
         /* --- Модальное окно --- */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(5px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background: #0a0a0a;
-            border: 1px solid var(--orange-dark);
-            box-shadow: 0 0 30px rgba(255, 140, 0, 0.2);
-            border-radius: 15px;
-            width: 95%;
-            max-width: 1100px;
-            max-height: 90vh;
-            padding: 40px;
-            position: relative;
-            overflow-y: auto;
-            transform: translateY(20px);
-            transition: transform 0.3s;
-        }
-
-        .modal-overlay.active .modal-content {
-            transform: translateY(0);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 35px;
-            cursor: pointer;
-            transition: color 0.3s;
-            line-height: 1;
-        }
-
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px); display: flex; justify-content: center; align-items: center; z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content { background: #0a0a0a; border: 1px solid var(--orange-dark); box-shadow: 0 0 30px rgba(255, 140, 0, 0.2); border-radius: 15px; width: 95%; max-width: 1100px; max-height: 90vh; padding: 40px; position: relative; overflow-y: auto; transform: translateY(20px); transition: transform 0.3s; }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        .close-btn { position: absolute; top: 15px; right: 20px; background: none; border: none; color: var(--text-muted); font-size: 35px; cursor: pointer; transition: color 0.3s; line-height: 1; }
         .close-btn:hover { color: var(--orange-bright); }
-
-        .modal-title {
-            font-family: 'Russo One', sans-serif;
-            text-align: center;
-            color: var(--orange-bright);
-            font-size: 28px;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-        }
-
-        .candidates-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-
-        .candidate-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .candidate-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border: 2px solid transparent;
-            transition: 0.3s;
-            background: #111;
-        }
-
-        .candidate-card:hover .candidate-img {
-            border-color: var(--orange-bright);
-            box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
-        }
-
-        .candidate-name {
-            font-family: 'Russo One', sans-serif;
-            color: #fff;
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .candidate-role {
-            color: var(--orange-bright);
-            font-size: 12px;
-            margin-bottom: 15px;
-        }
-
-        .select-btn {
-            background: linear-gradient(180deg, #555, #111);
-            color: white;
-            font-family: 'Russo One', sans-serif;
-            font-size: 12px;
-            padding: 10px 20px;
-            border: 1px solid #444;
-            border-radius: 5px;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: 0.3s;
-            width: 80%;
-        }
-
-        .select-btn:hover {
-            background: linear-gradient(180deg, #ffcc00, #ff3300, #800000);
-            border-color: #ff8c00;
-            box-shadow: 0 0 15px rgba(255, 50, 0, 0.6);
-        }
+        .modal-title { font-family: 'Russo One', sans-serif; text-align: center; color: var(--orange-bright); font-size: 28px; margin-bottom: 40px; text-transform: uppercase; }
+        
+        .candidates-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .candidate-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .candidate-img { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; border: 2px solid transparent; transition: 0.3s; background: #111; }
+        .candidate-card:hover .candidate-img { border-color: var(--orange-bright); box-shadow: 0 0 15px rgba(255, 140, 0, 0.5); }
+        .candidate-name { font-family: 'Russo One', sans-serif; color: #fff; font-size: 18px; margin-bottom: 5px; }
+        .candidate-role { color: var(--orange-bright); font-size: 12px; margin-bottom: 15px; }
+        .select-btn { background: linear-gradient(180deg, #555, #111); color: white; font-family: 'Russo One', sans-serif; font-size: 12px; padding: 10px 20px; border: 1px solid #444; border-radius: 5px; cursor: pointer; text-transform: uppercase; transition: 0.3s; width: 80%; }
+        .select-btn:hover { background: linear-gradient(180deg, #ffcc00, #ff3300, #800000); border-color: #ff8c00; box-shadow: 0 0 15px rgba(255, 50, 0, 0.6); }
 
         /* --- Подвал --- */
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 30px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--text-muted);
-            font-size: 12px;
-        }
+        footer { border-top: 1px solid var(--border-color); padding: 30px 40px; display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 12px; }
 
         /* --- Адаптивность --- */
-        @media (max-width: 992px) {
-            .candidates-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
+        @media (max-width: 992px) { .candidates-grid { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 768px) {
             .hero-title { font-size: 70px; }
             header { padding: 15px 20px; flex-direction: column; gap: 15px; }
@@ -437,11 +130,7 @@
             .candidates-grid { grid-template-columns: repeat(2, 1fr); }
             .modal-content { padding: 20px; }
         }
-
-        @media (max-width: 480px) {
-            .candidates-grid { grid-template-columns: 1fr; }
-            .bottom-nominations-container { gap: 20px; }
-        }
+        @media (max-width: 480px) { .candidates-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -453,11 +142,9 @@
             <li><a href="#nominations">Номинации</a></li>
             <li><a href="#">Вопрос-ответ</a></li>
         </ul>
-        
         <div class="logo-container">
             <div class="logo-text">Империя Куртого Пидораса | Труба Бибы</div>
         </div>
-
         <div class="header-right">
             <span>SUPPORT</span>
             <span>✈️</span>
@@ -475,7 +162,6 @@
     <section class="nominations-section" id="nominations">
         <h2 class="section-title">Номинации 2026</h2>
         
-        <!-- БИБА КИНГ (сверху по центру) -->
         <div class="top-nomination-container">
             <div class="nomination-card">
                 <div class="icon-placeholder">👑</div>
@@ -488,9 +174,7 @@
             </div>
         </div>
 
-        <!-- Остальные номинации (снизу в ряд) -->
         <div class="bottom-nominations-container">
-            <!-- Долбоёб года -->
             <div class="nomination-card">
                 <div class="icon-placeholder">🤡</div>
                 <h3 class="nomination-title">ДОЛБОЁБ ГОДА</h3>
@@ -501,7 +185,6 @@
                 </div>
             </div>
             
-            <!-- Комментатор года -->
             <div class="nomination-card">
                 <div class="icon-placeholder">🎙️</div>
                 <h3 class="nomination-title">КОММЕНТАТОР ГОДА</h3>
@@ -512,7 +195,6 @@
                 </div>
             </div>
 
-            <!-- Афк года -->
             <div class="nomination-card">
                 <div class="icon-placeholder">💤</div>
                 <h3 class="nomination-title">АФК ГОДА</h3>
@@ -530,10 +212,7 @@
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal()">&times;</button>
             <h2 class="modal-title" id="modalTitle">Выберите кандидата</h2>
-            
-            <div class="candidates-grid" id="candidatesGrid">
-                <!-- Сюда JS будет вставлять карточки участников -->
-            </div>
+            <div class="candidates-grid" id="candidatesGrid"></div>
         </div>
     </div>
 
@@ -543,17 +222,34 @@
             <a href="#" style="color: var(--text-muted); text-decoration: none;">Политика конфиденциальности</a>
             <a href="#" style="color: var(--text-muted); text-decoration: none;">Правила КЛЕЙ 2026</a>
         </div>
-        
         <div style="text-align: center;">
             <div style="font-family: 'Russo One'; font-size: 18px; color: #555; margin-bottom: 5px;">METACORP</div>
         </div>
-
-        <div>
-            2026 © Империя Куртого Пидораса
-        </div>
+        <div>2026 © Империя Куртого Пидораса</div>
     </footer>
 
-    <script>
+    <!-- ПОДКЛЮЧАЕМ FIREBASE И СКРИПТ -->
+    <script type="module">
+        // 1. Импортируем функции Firebase через CDN
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        // 2. Ваша конфигурация
+        const firebaseConfig = {
+            apiKey: "AIzaSyAHZKQYe30wE_Fz76TxqW4lTARkHIMh7es",
+            authDomain: "aktep-chat.firebaseapp.com",
+            databaseURL: "https://aktep-chat-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "aktep-chat",
+            storageBucket: "aktep-chat.firebasestorage.app",
+            messagingSenderId: "286158389718",
+            appId: "1:286158389718:web:dbbce7385b80ec8435a477",
+            measurementId: "G-Q6TYN4TJ1C"
+        };
+
+        // 3. Инициализация Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
         // Данные участников
         const participants = [
             { name: 'Богдан', img: 'Богдан.png' },
@@ -575,8 +271,8 @@
         const modalTitle = document.getElementById('modalTitle');
         const candidatesGrid = document.getElementById('candidatesGrid');
 
-        // Открытие модального окна
-        function openVoting(category, btnId, resultId, avatarId) {
+        // ВАЖНО: Так как это модуль, функции нужно сделать глобальными для HTML (onclick="...")
+        window.openVoting = function(category, btnId, resultId, avatarId) {
             currentCategory = category;
             currentBtnId = btnId;
             currentResultId = resultId;
@@ -585,7 +281,6 @@
             modalTitle.innerText = 'Номинация: ' + category;
             candidatesGrid.innerHTML = '';
 
-            // Генерируем карточки участников
             participants.forEach(person => {
                 const card = document.createElement('div');
                 card.className = 'candidate-card';
@@ -603,13 +298,11 @@
             modal.classList.add('active');
         }
 
-        // Закрытие модального окна
-        function closeModal() {
+        window.closeModal = function() {
             modal.classList.remove('active');
         }
 
-        // Обработка голоса
-        function castVote(candidateName, candidateImg) {
+        window.castVote = function(candidateName, candidateImg) {
             // 1. Показываем текст под номинацией
             const resultElement = document.getElementById(currentResultId);
             if (resultElement) {
@@ -632,7 +325,19 @@
                 btnElement.disabled = true;
             }
 
-            // 4. Закрываем модалку и показываем уведомление
+            // 4. ОТПРАВЛЯЕМ ГОЛОС В FIREBASE REALTIME DATABASE
+            const votesRef = ref(database, 'klei_votes');
+            push(votesRef, {
+                nomination: currentCategory,
+                candidate: candidateName,
+                timestamp: new Date().toISOString()
+            }).then(() => {
+                console.log("Голос успешно записан в Firebase!");
+            }).catch((error) => {
+                console.error("Ошибка при отправке голоса: ", error);
+            });
+
+            // 5. Закрываем модалку и показываем уведомление
             closeModal();
             alert(`Голос учтен!\n\nНоминация: ${currentCategory}\nВаш кандидат: ${candidateName}`);
         }
