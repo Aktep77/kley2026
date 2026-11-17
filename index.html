@@ -62,52 +62,26 @@
         }
 
         /* Стили для таймера */
-        .timer-container {
-            margin-bottom: 50px;
-        }
-        .timer-title {
-            font-family: 'Russo One', sans-serif;
-            color: var(--text-muted);
-            font-size: 16px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .timer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
+        .timer-container { margin-bottom: 50px; }
+        .timer-title { font-family: 'Russo One', sans-serif; color: var(--text-muted); font-size: 16px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
+        .timer { display: flex; justify-content: center; gap: 15px; }
         .time-box {
-            background: rgba(255, 140, 0, 0.1);
-            border: 1px solid var(--orange-dark);
-            border-radius: 10px;
-            padding: 10px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 80px;
-            box-shadow: 0 0 15px rgba(255, 140, 0, 0.2);
+            background: rgba(255, 140, 0, 0.1); border: 1px solid var(--orange-dark);
+            border-radius: 10px; padding: 10px 20px; display: flex; flex-direction: column;
+            align-items: center; min-width: 80px; box-shadow: 0 0 15px rgba(255, 140, 0, 0.2);
         }
         .time-box span:first-child {
-            font-family: 'Russo One', sans-serif;
-            font-size: 32px;
-            color: var(--orange-bright);
+            font-family: 'Russo One', sans-serif; font-size: 32px; color: var(--orange-bright);
             text-shadow: 0 0 10px var(--orange-dark);
         }
-        .time-box span:last-child {
-            font-size: 12px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            margin-top: 5px;
-        }
+        .time-box span:last-child { font-size: 12px; color: var(--text-muted); text-transform: uppercase; margin-top: 5px; }
 
         /* --- Номинации --- */
-        .nominations-section { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .nominations-section { max-width: 1200px; margin: 0 auto; padding: 40px 20px 80px; }
         .section-title { text-align: center; font-family: 'Russo One', sans-serif; font-size: 36px; color: var(--orange-bright); margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; }
         
         .top-nomination-container { display: flex; justify-content: center; margin-bottom: 40px; }
-        .bottom-nominations-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-bottom: 80px; }
+        .bottom-nominations-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; }
         
         .nomination-card {
             text-align: center; display: flex; flex-direction: column; align-items: center;
@@ -158,19 +132,6 @@
         .candidate-role { color: var(--orange-bright); font-size: 12px; margin-bottom: 15px; }
         .select-btn { background: linear-gradient(180deg, #555, #111); color: white; font-family: 'Russo One', sans-serif; font-size: 12px; padding: 10px 20px; border: 1px solid #444; border-radius: 5px; cursor: pointer; text-transform: uppercase; transition: 0.3s; width: 80%; }
         .select-btn:hover { background: linear-gradient(180deg, #ffcc00, #ff3300, #800000); border-color: #ff8c00; box-shadow: 0 0 15px rgba(255, 50, 0, 0.6); }
-
-        /* --- Фото внизу --- */
-        .bottom-image-section {
-            text-align: center;
-            padding: 40px 20px 80px;
-        }
-        .bottom-image-section img {
-            max-width: 100%;
-            width: 800px;
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(255, 140, 0, 0.3);
-            border: 2px solid var(--orange-dark);
-        }
 
         /* --- Подвал --- */
         footer { border-top: 1px solid var(--border-color); padding: 30px 40px; display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 12px; }
@@ -299,11 +260,6 @@
         </div>
     </section>
 
-    <!-- Фото Клей внизу -->
-    <section class="bottom-image-section">
-        <img src="Клей.Png" alt="Клей">
-    </section>
-
     <!-- Модальное окно -->
     <div class="modal-overlay" id="votingModal">
         <div class="modal-content">
@@ -347,7 +303,7 @@
         const app = initializeApp(firebaseConfig);
         const database = getDatabase(app);
 
-        // 4. Данные участников (добавлен Ярик)
+        // 4. Данные участников
         const participants = [
             { name: 'Богдан', img: 'Богдан.png' },
             { name: 'Ян', img: 'Ян.png' },
@@ -357,7 +313,7 @@
             { name: 'Диана', img: 'Диана.png' },
             { name: 'Данил', img: 'Данил.png' },
             { name: 'Илья', img: 'Илья.png' },
-            { name: 'Ярик', img: 'Ярик.png' } // Новый участник
+            { name: 'Ярик', img: 'Ярик.png' }
         ];
 
         let currentCategory = '';
