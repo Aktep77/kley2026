@@ -47,7 +47,7 @@
         .logo-text { font-family: 'Russo One', sans-serif; font-size: 18px; color: #fff; letter-spacing: 1px; text-shadow: 0 0 10px rgba(255, 140, 0, 0.5); }
         .header-right { display: flex; align-items: center; gap: 20px; color: var(--text-muted); font-size: 14px; letter-spacing: 2px; }
 
-        /* --- Главный экран --- */
+        /* --- Главный экран и Таймер --- */
         .hero { text-align: center; padding: 60px 20px 40px; }
         .hero-pretitle {
             font-family: 'Russo One', sans-serif; font-size: 20px; color: var(--text-main);
@@ -55,10 +55,51 @@
             padding: 5px 30px; margin-bottom: 20px; box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
         }
         .hero-title {
-            font-family: 'Russo One', sans-serif; font-size: 110px; line-height: 1; margin-bottom: 20px;
+            font-family: 'Russo One', sans-serif; font-size: 110px; line-height: 1; margin-bottom: 30px;
             background: linear-gradient(180deg, #ffb347, #ff8c00, #d35400);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 0 20px rgba(255, 140, 0, 0.4)); text-transform: uppercase;
+        }
+
+        /* Стили для таймера */
+        .timer-container {
+            margin-bottom: 50px;
+        }
+        .timer-title {
+            font-family: 'Russo One', sans-serif;
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .time-box {
+            background: rgba(255, 140, 0, 0.1);
+            border: 1px solid var(--orange-dark);
+            border-radius: 10px;
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 80px;
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.2);
+        }
+        .time-box span:first-child {
+            font-family: 'Russo One', sans-serif;
+            font-size: 32px;
+            color: var(--orange-bright);
+            text-shadow: 0 0 10px var(--orange-dark);
+        }
+        .time-box span:last-child {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 5px;
         }
 
         /* --- Номинации --- */
@@ -118,6 +159,19 @@
         .select-btn { background: linear-gradient(180deg, #555, #111); color: white; font-family: 'Russo One', sans-serif; font-size: 12px; padding: 10px 20px; border: 1px solid #444; border-radius: 5px; cursor: pointer; text-transform: uppercase; transition: 0.3s; width: 80%; }
         .select-btn:hover { background: linear-gradient(180deg, #ffcc00, #ff3300, #800000); border-color: #ff8c00; box-shadow: 0 0 15px rgba(255, 50, 0, 0.6); }
 
+        /* --- Фото внизу --- */
+        .bottom-image-section {
+            text-align: center;
+            padding: 40px 20px 80px;
+        }
+        .bottom-image-section img {
+            max-width: 100%;
+            width: 800px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 140, 0, 0.3);
+            border: 2px solid var(--orange-dark);
+        }
+
         /* --- Подвал --- */
         footer { border-top: 1px solid var(--border-color); padding: 30px 40px; display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 12px; }
 
@@ -129,6 +183,8 @@
             .nav-links { flex-wrap: wrap; justify-content: center; }
             .candidates-grid { grid-template-columns: repeat(2, 1fr); }
             .modal-content { padding: 20px; }
+            .time-box { padding: 10px; min-width: 60px; }
+            .time-box span:first-child { font-size: 24px; }
         }
         @media (max-width: 480px) { .candidates-grid { grid-template-columns: 1fr; } }
     </style>
@@ -156,6 +212,17 @@
     <section class="hero">
         <div class="hero-pretitle">ТРУБА БИБЫ</div>
         <h1 class="hero-title">КЛЕЙ</h1>
+        
+        <!-- Таймер -->
+        <div class="timer-container">
+            <div class="timer-title">До конца голосования осталось:</div>
+            <div class="timer" id="countdown">
+                <div class="time-box"><span id="days">00</span><span>дней</span></div>
+                <div class="time-box"><span id="hours">00</span><span>часов</span></div>
+                <div class="time-box"><span id="minutes">00</span><span>минут</span></div>
+                <div class="time-box"><span id="seconds">00</span><span>секунд</span></div>
+            </div>
+        </div>
     </section>
 
     <!-- Секция Номинаций -->
@@ -175,6 +242,7 @@
         </div>
 
         <div class="bottom-nominations-container">
+            <!-- 2. Долбоёб года -->
             <div class="nomination-card">
                 <div class="icon-placeholder">🤡</div>
                 <h3 class="nomination-title">ДОЛБОЁБ ГОДА</h3>
@@ -185,6 +253,7 @@
                 </div>
             </div>
             
+            <!-- 3. Комментатор года -->
             <div class="nomination-card">
                 <div class="icon-placeholder">🎙️</div>
                 <h3 class="nomination-title">КОММЕНТАТОР ГОДА</h3>
@@ -195,6 +264,7 @@
                 </div>
             </div>
 
+            <!-- 4. АФК года -->
             <div class="nomination-card">
                 <div class="icon-placeholder">💤</div>
                 <h3 class="nomination-title">АФК ГОДА</h3>
@@ -204,7 +274,34 @@
                     <img src="" alt="Выбранный участник" class="voted-avatar">
                 </div>
             </div>
+
+            <!-- 5. Алкаш года -->
+            <div class="nomination-card">
+                <div class="icon-placeholder">🍾</div>
+                <h3 class="nomination-title">АЛКАШ ГОДА</h3>
+                <button class="vote-btn" id="btn-5" onclick="openVoting('Алкаш года', 'btn-5', 'result-5', 'avatar-5')">ПРОГОЛОСОВАТЬ</button>
+                <div class="vote-result" id="result-5"></div>
+                <div class="voted-avatar-container" id="avatar-5">
+                    <img src="" alt="Выбранный участник" class="voted-avatar">
+                </div>
+            </div>
+
+            <!-- 6. Накрутка голосов года -->
+            <div class="nomination-card">
+                <div class="icon-placeholder">📈</div>
+                <h3 class="nomination-title">НАКРУТКА ГОЛОСОВ ГОДА</h3>
+                <button class="vote-btn" id="btn-6" onclick="openVoting('Накрутка голосов года', 'btn-6', 'result-6', 'avatar-6')">ПРОГОЛОСОВАТЬ</button>
+                <div class="vote-result" id="result-6"></div>
+                <div class="voted-avatar-container" id="avatar-6">
+                    <img src="" alt="Выбранный участник" class="voted-avatar">
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- Фото Клей внизу -->
+    <section class="bottom-image-section">
+        <img src="Клей.Png" alt="Клей">
     </section>
 
     <!-- Модальное окно -->
@@ -228,13 +325,13 @@
         <div>2026 © Империя Куртого Пидораса</div>
     </footer>
 
-    <!-- ПОДКЛЮЧАЕМ FIREBASE И СКРИПТ -->
+    <!-- СКРИПТЫ -->
     <script type="module">
-        // 1. Импортируем функции Firebase через CDN
+        // 1. Импортируем функции Firebase
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-        // 2. Ваша конфигурация
+        // 2. Конфигурация Firebase
         const firebaseConfig = {
             apiKey: "AIzaSyAHZKQYe30wE_Fz76TxqW4lTARkHIMh7es",
             authDomain: "aktep-chat.firebaseapp.com",
@@ -250,7 +347,7 @@
         const app = initializeApp(firebaseConfig);
         const database = getDatabase(app);
 
-        // Данные участников
+        // 4. Данные участников (добавлен Ярик)
         const participants = [
             { name: 'Богдан', img: 'Богдан.png' },
             { name: 'Ян', img: 'Ян.png' },
@@ -259,7 +356,8 @@
             { name: 'Миша', img: 'Миша.png' },
             { name: 'Диана', img: 'Диана.png' },
             { name: 'Данил', img: 'Данил.png' },
-            { name: 'Илья', img: 'Илья.png' }
+            { name: 'Илья', img: 'Илья.png' },
+            { name: 'Ярик', img: 'Ярик.png' } // Новый участник
         ];
 
         let currentCategory = '';
@@ -271,7 +369,7 @@
         const modalTitle = document.getElementById('modalTitle');
         const candidatesGrid = document.getElementById('candidatesGrid');
 
-        // ВАЖНО: Так как это модуль, функции нужно сделать глобальными для HTML (onclick="...")
+        // Делаем функции глобальными для вызова из HTML (onclick)
         window.openVoting = function(category, btnId, resultId, avatarId) {
             currentCategory = category;
             currentBtnId = btnId;
@@ -303,14 +401,12 @@
         }
 
         window.castVote = function(candidateName, candidateImg) {
-            // 1. Показываем текст под номинацией
             const resultElement = document.getElementById(currentResultId);
             if (resultElement) {
                 resultElement.innerText = `Вы проголосовали за: ${candidateName}`;
                 resultElement.classList.add('show');
             }
 
-            // 2. Показываем аватарку участника
             const avatarContainer = document.getElementById(currentAvatarId);
             if (avatarContainer) {
                 const avatarImg = avatarContainer.querySelector('img');
@@ -318,36 +414,68 @@
                 avatarContainer.classList.add('show');
             }
 
-            // 3. Делаем кнопку неактивной
             const btnElement = document.getElementById(currentBtnId);
             if (btnElement) {
                 btnElement.innerText = 'ГОЛОС УЧТЕН';
                 btnElement.disabled = true;
             }
 
-            // 4. ОТПРАВЛЯЕМ ГОЛОС В FIREBASE REALTIME DATABASE
+            // Отправка в Firebase
             const votesRef = ref(database, 'klei_votes');
             push(votesRef, {
                 nomination: currentCategory,
                 candidate: candidateName,
                 timestamp: new Date().toISOString()
             }).then(() => {
-                console.log("Голос успешно записан в Firebase!");
+                console.log("Голос записан в Firebase!");
             }).catch((error) => {
-                console.error("Ошибка при отправке голоса: ", error);
+                console.error("Ошибка: ", error);
             });
 
-            // 5. Закрываем модалку и показываем уведомление
             closeModal();
             alert(`Голос учтен!\n\nНоминация: ${currentCategory}\nВаш кандидат: ${candidateName}`);
         }
 
-        // Закрытие по клику вне окна
         modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
+            if (e.target === modal) closeModal();
         });
+
+        // ==========================================
+        // ЛОГИКА ТАЙМЕРА (До 19 ноября, 03:00 МСК)
+        // ==========================================
+        function updateTimer() {
+            // Текущий год
+            let year = new Date().getFullYear();
+            // Задаем целевую дату (19 ноября, 03:00 по МСК, часовой пояс +03:00)
+            let targetDate = new Date(`November 19, ${year} 03:00:00 GMT+0300`);
+            
+            // Если 19 ноября в этом году уже прошло, ставим на следующий год
+            if (new Date() > targetDate) {
+                targetDate = new Date(`November 19, ${year + 1} 03:00:00 GMT+0300`);
+            }
+
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "<div class='time-box'><span>ГОЛОСОВАНИЕ</span><span>ЗАВЕРШЕНО</span></div>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+        }
+
+        // Запускаем таймер каждую секунду
+        setInterval(updateTimer, 1000);
+        updateTimer(); // Вызываем сразу, чтобы не было задержки в 1 сек.
     </script>
 </body>
 </html>
