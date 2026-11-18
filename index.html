@@ -47,7 +47,7 @@
         .logo-text { font-family: 'Russo One', sans-serif; font-size: 18px; color: #fff; letter-spacing: 1px; text-shadow: 0 0 10px rgba(255, 140, 0, 0.5); }
         .header-right { display: flex; align-items: center; gap: 20px; color: var(--text-muted); font-size: 14px; letter-spacing: 2px; }
 
-        /* --- Главный экран и Таймер --- */
+        /* --- Главный экран --- */
         .hero { text-align: center; padding: 60px 20px 40px; }
         .hero-pretitle {
             font-family: 'Russo One', sans-serif; font-size: 20px; color: var(--text-main);
@@ -61,93 +61,156 @@
             filter: drop-shadow(0 0 20px rgba(255, 140, 0, 0.4)); text-transform: uppercase;
         }
 
-        /* Стили для таймера */
-        .timer-container { margin-bottom: 50px; }
-        .timer-title { font-family: 'Russo One', sans-serif; color: var(--text-muted); font-size: 16px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
-        .timer { display: flex; justify-content: center; gap: 15px; }
-        .time-box {
-            background: rgba(255, 140, 0, 0.1); border: 1px solid var(--orange-dark);
-            border-radius: 10px; padding: 10px 20px; display: flex; flex-direction: column;
-            align-items: center; min-width: 80px; box-shadow: 0 0 15px rgba(255, 140, 0, 0.2);
+        /* --- Баннер об окончании --- */
+        .ended-banner {
+            background: rgba(204, 0, 0, 0.1);
+            border: 2px solid var(--red-fire);
+            color: #fff;
+            font-family: 'Russo One', sans-serif;
+            font-size: 24px;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 30px rgba(204, 0, 0, 0.4);
+            animation: pulse 2s infinite;
         }
-        .time-box span:first-child {
-            font-family: 'Russo One', sans-serif; font-size: 32px; color: var(--orange-bright);
-            text-shadow: 0 0 10px var(--orange-dark);
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px rgba(204, 0, 0, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(204, 0, 0, 0.8); }
+            100% { box-shadow: 0 0 20px rgba(204, 0, 0, 0.4); }
         }
-        .time-box span:last-child { font-size: 12px; color: var(--text-muted); text-transform: uppercase; margin-top: 5px; }
 
-        /* --- Номинации --- */
-        .nominations-section { max-width: 1200px; margin: 0 auto; padding: 40px 20px 80px; }
-        .section-title { text-align: center; font-family: 'Russo One', sans-serif; font-size: 36px; color: var(--orange-bright); margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; }
+        /* --- Блок Победителей --- */
+        .winners-section { max-width: 1200px; margin: 0 auto; padding: 0 20px 80px; }
+        .winners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .winner-card {
+            background: linear-gradient(180deg, rgba(255, 140, 0, 0.1), rgba(0, 0, 0, 0.8));
+            border: 2px solid var(--orange-bright);
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 140, 0, 0.2);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .winner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.4);
+        }
         
-        .top-nomination-container { display: flex; justify-content: center; margin-bottom: 40px; }
+        /* Тематические иконки */
+        .winner-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 15px rgba(255, 50, 0, 0.6));
+        }
+
+        /* Картинки победителей */
+        .winner-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--orange-bright);
+            margin-bottom: 20px;
+            background: #111;
+            box-shadow: 0 0 25px rgba(255, 140, 0, 0.6);
+        }
+        .winner-nom {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+        .winner-name {
+            font-family: 'Russo One', sans-serif;
+            font-size: 26px;
+            color: var(--orange-bright);
+            text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+        }
+
+        /* --- Номинации (архив) --- */
+        .nominations-section { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .section-title { text-align: center; font-family: 'Russo One', sans-serif; font-size: 36px; color: var(--text-muted); margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; }
+        
         .bottom-nominations-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; }
         
         .nomination-card {
             text-align: center; display: flex; flex-direction: column; align-items: center;
-            background: rgba(255, 140, 0, 0.03); padding: 30px 20px; border-radius: 15px;
-            border: 1px solid rgba(255, 140, 0, 0.1); transition: 0.3s; width: 100%; max-width: 320px;
+            background: rgba(255, 255, 255, 0.02); padding: 30px 20px; border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05); width: 100%; max-width: 320px;
         }
-        .nomination-card:hover { border-color: rgba(255, 140, 0, 0.4); background: rgba(255, 140, 0, 0.05); }
-        
-        .top-nomination-container .nomination-card { max-width: 400px; border-color: rgba(255, 140, 0, 0.3); box-shadow: 0 0 20px rgba(255, 140, 0, 0.1); }
-        .icon-placeholder { font-size: 70px; margin-bottom: 15px; filter: drop-shadow(0 0 15px rgba(255, 50, 0, 0.6)); }
-        .top-nomination-container .icon-placeholder { font-size: 90px; }
-        .nomination-title { font-family: 'Russo One', sans-serif; font-size: 20px; color: var(--orange-bright); margin-bottom: 25px; min-height: 50px; display: flex; align-items: center; justify-content: center; }
-        .top-nomination-container .nomination-title { font-size: 24px; }
+        .icon-placeholder { font-size: 60px; margin-bottom: 15px; opacity: 0.5; }
+        .nomination-title { font-family: 'Russo One', sans-serif; font-size: 18px; color: var(--text-muted); margin-bottom: 25px; min-height: 50px; display: flex; align-items: center; justify-content: center; }
 
-        /* --- Огненная кнопка --- */
-        .vote-btn {
-            background: linear-gradient(180deg, #ffcc00, #ff3300, #800000); color: white;
-            font-family: 'Russo One', sans-serif; font-size: 14px; padding: 15px 30px; border: none;
-            cursor: pointer; text-transform: uppercase; letter-spacing: 1px; position: relative;
-            clip-path: polygon(15% 0, 85% 0, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
-            transition: all 0.3s; box-shadow: 0 0 20px rgba(255, 50, 0, 0.5); width: 100%; max-width: 220px;
+        /* Заблокированная кнопка */
+        .vote-btn-disabled {
+            background: #1a1a1a; color: #555; font-family: 'Russo One', sans-serif;
+            font-size: 14px; padding: 15px 30px; border: 1px solid #333; border-radius: 8px;
+            text-transform: uppercase; letter-spacing: 1px; width: 100%; max-width: 220px;
+            cursor: not-allowed;
         }
-        .vote-btn:hover:not(:disabled) { transform: scale(1.05); filter: brightness(1.2); }
-        .vote-btn:disabled { background: linear-gradient(180deg, #444, #222); box-shadow: none; cursor: not-allowed; color: #888; clip-path: none; border-radius: 8px; }
 
-        /* Текст результата и аватарка */
-        .vote-result { margin-top: 15px; font-size: 14px; font-weight: 600; color: var(--orange-bright); min-height: 20px; text-shadow: 0 0 5px rgba(255, 140, 0, 0.4); opacity: 0; transition: opacity 0.5s ease-in-out; }
-        .vote-result.show { opacity: 1; }
-        .voted-avatar-container { margin-top: 15px; display: none; justify-content: center; opacity: 0; transition: opacity 0.5s ease-in-out; }
-        .voted-avatar-container.show { display: flex; opacity: 1; }
-        .voted-avatar { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 3px solid var(--orange-bright); box-shadow: 0 0 15px rgba(255, 140, 0, 0.8); background-color: #111; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        @keyframes popIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
-
-        /* --- Модальное окно --- */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px); display: flex; justify-content: center; align-items: center; z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-content { background: #0a0a0a; border: 1px solid var(--orange-dark); box-shadow: 0 0 30px rgba(255, 140, 0, 0.2); border-radius: 15px; width: 95%; max-width: 1100px; max-height: 90vh; padding: 40px; position: relative; overflow-y: auto; transform: translateY(20px); transition: transform 0.3s; }
-        .modal-overlay.active .modal-content { transform: translateY(0); }
-        .close-btn { position: absolute; top: 15px; right: 20px; background: none; border: none; color: var(--text-muted); font-size: 35px; cursor: pointer; transition: color 0.3s; line-height: 1; }
-        .close-btn:hover { color: var(--orange-bright); }
-        .modal-title { font-family: 'Russo One', sans-serif; text-align: center; color: var(--orange-bright); font-size: 28px; margin-bottom: 40px; text-transform: uppercase; }
-        
-        .candidates-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-        .candidate-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .candidate-img { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; border: 2px solid transparent; transition: 0.3s; background: #111; }
-        .candidate-card:hover .candidate-img { border-color: var(--orange-bright); box-shadow: 0 0 15px rgba(255, 140, 0, 0.5); }
-        .candidate-name { font-family: 'Russo One', sans-serif; color: #fff; font-size: 18px; margin-bottom: 5px; }
-        .candidate-role { color: var(--orange-bright); font-size: 12px; margin-bottom: 15px; }
-        .select-btn { background: linear-gradient(180deg, #555, #111); color: white; font-family: 'Russo One', sans-serif; font-size: 12px; padding: 10px 20px; border: 1px solid #444; border-radius: 5px; cursor: pointer; text-transform: uppercase; transition: 0.3s; width: 80%; }
-        .select-btn:hover { background: linear-gradient(180deg, #ffcc00, #ff3300, #800000); border-color: #ff8c00; box-shadow: 0 0 15px rgba(255, 50, 0, 0.6); }
+        /* --- Блок статистики Яна (Уменьшенный) --- */
+        .stats-section {
+            max-width: 400px;
+            margin: 0 auto 100px;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .stats-card {
+            background: #0a0a0a;
+            border: 1px solid var(--orange-dark);
+            border-radius: 12px;
+            padding: 20px 15px;
+            box-shadow: 0 0 20px rgba(255, 140, 0, 0.15);
+        }
+        .stats-text {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .stats-number {
+            font-family: 'Russo One', sans-serif;
+            font-size: 36px;
+            color: var(--orange-bright);
+            text-shadow: 0 0 15px rgba(255, 140, 0, 0.6);
+            display: block;
+            margin: 10px 0;
+        }
+        .stats-highlight {
+            color: var(--text-main);
+            font-weight: 800;
+        }
 
         /* --- Подвал --- */
         footer { border-top: 1px solid var(--border-color); padding: 30px 40px; display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 12px; }
 
         /* --- Адаптивность --- */
-        @media (max-width: 992px) { .candidates-grid { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 768px) {
             .hero-title { font-size: 70px; }
             header { padding: 15px 20px; flex-direction: column; gap: 15px; }
             .nav-links { flex-wrap: wrap; justify-content: center; }
-            .candidates-grid { grid-template-columns: repeat(2, 1fr); }
-            .modal-content { padding: 20px; }
-            .time-box { padding: 10px; min-width: 60px; }
-            .time-box span:first-child { font-size: 24px; }
+            .winners-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .winner-img { width: 120px; height: 120px; }
+            .winner-icon { font-size: 40px; }
+            .winner-name { font-size: 20px; }
+            .ended-banner { font-size: 18px; }
         }
-        @media (max-width: 480px) { .candidates-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 480px) {
+            .winners-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -174,100 +237,119 @@
         <div class="hero-pretitle">ТРУБА БИБЫ</div>
         <h1 class="hero-title">КЛЕЙ</h1>
         
-        <!-- Таймер -->
-        <div class="timer-container">
-            <div class="timer-title">До конца голосования осталось:</div>
-            <div class="timer" id="countdown">
-                <div class="time-box"><span id="days">00</span><span>дней</span></div>
-                <div class="time-box"><span id="hours">00</span><span>часов</span></div>
-                <div class="time-box"><span id="minutes">00</span><span>минут</span></div>
-                <div class="time-box"><span id="seconds">00</span><span>секунд</span></div>
+        <!-- Баннер окончания -->
+        <div class="ended-banner">
+            🔒 Голосование официально завершено!
+        </div>
+    </section>
+
+    <!-- Секция Победителей -->
+    <section class="winners-section">
+        <h2 class="section-title" style="color: var(--orange-bright);">🏆 Победители 2026</h2>
+        
+        <div class="winners-grid">
+            <!-- Биба Кинг (ТЕПЕРЬ ЯН) -->
+            <div class="winner-card">
+                <div class="winner-icon">👑</div>
+                <img src="Ян.png" alt="Ян" class="winner-img" onerror="this.src='https://ui-avatars.com/api/?name=Ян&background=111&color=ff8c00&size=180'">
+                <div class="winner-nom">БИБА КИНГ</div>
+                <div class="winner-name">Ян</div>
+            </div>
+            
+            <!-- Долбоёб года -->
+            <div class="winner-card">
+                <div class="winner-icon">🤡</div>
+                <img src="Ярик.png" alt="Ярик" class="winner-img" onerror="this.src='https://ui-avatars.com/api/?name=Ярик&background=111&color=ff8c00&size=180'">
+                <div class="winner-nom">ДОЛБОЁБ ГОДА</div>
+                <div class="winner-name">Ярик</div>
+            </div>
+
+            <!-- Комментатор года -->
+            <div class="winner-card">
+                <div class="winner-icon">🎙️</div>
+                <img src="Стёпа.png" alt="Стёпа" class="winner-img" onerror="this.src='https://ui-avatars.com/api/?name=Стёпа&background=111&color=ff8c00&size=180'">
+                <div class="winner-nom">КОММЕНТАТОР ГОДА</div>
+                <div class="winner-name">Стёпа</div>
+            </div>
+
+            <!-- АФК года -->
+            <div class="winner-card">
+                <div class="winner-icon">💤</div>
+                <img src="Данил.png" alt="Данил" class="winner-img" onerror="this.src='https://ui-avatars.com/api/?name=Данил&background=111&color=ff8c00&size=180'">
+                <div class="winner-nom">АФК ГОДА</div>
+                <div class="winner-name">Данил</div>
+            </div>
+
+            <!-- Алкаш года -->
+            <div class="winner-card">
+                <div class="winner-icon">🍾</div>
+                <img src="Стёпа.png" alt="Стёпа" class="winner-img" onerror="this.src='https://ui-avatars.com/api/?name=Стёпа&background=111&color=ff8c00&size=180'">
+                <div class="winner-nom">АЛКАШ ГОДА</div>
+                <div class="winner-name">Стёпа</div>
+            </div>
+
+            <!-- Накрутка голосов года -->
+            <div class="winner-card">
+                <div class="winner-icon">📈</div>
+                <img src="Ян.png" alt="Ян" class="winner-img" onerror="this.src='https://ui-avatars.com/api/?name=Ян&background=111&color=ff8c00&size=180'">
+                <div class="winner-nom">НАКРУТКА ГОЛОСОВ ГОДА</div>
+                <div class="winner-name">Ян</div>
             </div>
         </div>
     </section>
 
-    <!-- Секция Номинаций -->
+    <!-- Архив номинаций (Только для вида, кнопки отключены) -->
     <section class="nominations-section" id="nominations">
-        <h2 class="section-title">Номинации 2026</h2>
+        <h2 class="section-title">Архив номинаций</h2>
         
-        <div class="top-nomination-container">
+        <div class="bottom-nominations-container">
             <div class="nomination-card">
                 <div class="icon-placeholder">👑</div>
                 <h3 class="nomination-title">БИБА КИНГ</h3>
-                <button class="vote-btn" id="btn-1" onclick="openVoting('Биба Кинг', 'btn-1', 'result-1', 'avatar-1')">ПРОГОЛОСОВАТЬ</button>
-                <div class="vote-result" id="result-1"></div>
-                <div class="voted-avatar-container" id="avatar-1">
-                    <img src="" alt="Выбранный участник" class="voted-avatar">
-                </div>
+                <button class="vote-btn-disabled" disabled>ЗАВЕРШЕНО</button>
             </div>
-        </div>
-
-        <div class="bottom-nominations-container">
-            <!-- 2. Долбоёб года -->
+            
             <div class="nomination-card">
                 <div class="icon-placeholder">🤡</div>
                 <h3 class="nomination-title">ДОЛБОЁБ ГОДА</h3>
-                <button class="vote-btn" id="btn-2" onclick="openVoting('Долбоёб года', 'btn-2', 'result-2', 'avatar-2')">ПРОГОЛОСОВАТЬ</button>
-                <div class="vote-result" id="result-2"></div>
-                <div class="voted-avatar-container" id="avatar-2">
-                    <img src="" alt="Выбранный участник" class="voted-avatar">
-                </div>
+                <button class="vote-btn-disabled" disabled>ЗАВЕРШЕНО</button>
             </div>
             
-            <!-- 3. Комментатор года -->
             <div class="nomination-card">
                 <div class="icon-placeholder">🎙️</div>
                 <h3 class="nomination-title">КОММЕНТАТОР ГОДА</h3>
-                <button class="vote-btn" id="btn-3" onclick="openVoting('Комментатор года', 'btn-3', 'result-3', 'avatar-3')">ПРОГОЛОСОВАТЬ</button>
-                <div class="vote-result" id="result-3"></div>
-                <div class="voted-avatar-container" id="avatar-3">
-                    <img src="" alt="Выбранный участник" class="voted-avatar">
-                </div>
+                <button class="vote-btn-disabled" disabled>ЗАВЕРШЕНО</button>
             </div>
 
-            <!-- 4. АФК года -->
             <div class="nomination-card">
                 <div class="icon-placeholder">💤</div>
                 <h3 class="nomination-title">АФК ГОДА</h3>
-                <button class="vote-btn" id="btn-4" onclick="openVoting('АФК года', 'btn-4', 'result-4', 'avatar-4')">ПРОГОЛОСОВАТЬ</button>
-                <div class="vote-result" id="result-4"></div>
-                <div class="voted-avatar-container" id="avatar-4">
-                    <img src="" alt="Выбранный участник" class="voted-avatar">
-                </div>
+                <button class="vote-btn-disabled" disabled>ЗАВЕРШЕНО</button>
             </div>
 
-            <!-- 5. Алкаш года -->
             <div class="nomination-card">
                 <div class="icon-placeholder">🍾</div>
                 <h3 class="nomination-title">АЛКАШ ГОДА</h3>
-                <button class="vote-btn" id="btn-5" onclick="openVoting('Алкаш года', 'btn-5', 'result-5', 'avatar-5')">ПРОГОЛОСОВАТЬ</button>
-                <div class="vote-result" id="result-5"></div>
-                <div class="voted-avatar-container" id="avatar-5">
-                    <img src="" alt="Выбранный участник" class="voted-avatar">
-                </div>
+                <button class="vote-btn-disabled" disabled>ЗАВЕРШЕНО</button>
             </div>
 
-            <!-- 6. Накрутка голосов года -->
             <div class="nomination-card">
                 <div class="icon-placeholder">📈</div>
                 <h3 class="nomination-title">НАКРУТКА ГОЛОСОВ ГОДА</h3>
-                <button class="vote-btn" id="btn-6" onclick="openVoting('Накрутка голосов года', 'btn-6', 'result-6', 'avatar-6')">ПРОГОЛОСОВАТЬ</button>
-                <div class="vote-result" id="result-6"></div>
-                <div class="voted-avatar-container" id="avatar-6">
-                    <img src="" alt="Выбранный участник" class="voted-avatar">
-                </div>
+                <button class="vote-btn-disabled" disabled>ЗАВЕРШЕНО</button>
             </div>
         </div>
     </section>
 
-    <!-- Модальное окно -->
-    <div class="modal-overlay" id="votingModal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeModal()">&times;</button>
-            <h2 class="modal-title" id="modalTitle">Выберите кандидата</h2>
-            <div class="candidates-grid" id="candidatesGrid"></div>
+    <!-- Блок статистики Яна -->
+    <section class="stats-section">
+        <div class="stats-card">
+            <div class="stats-text">
+                В сумме за все категории проголосовало за <span class="stats-highlight">Яна</span>:
+            </div>
+            <span class="stats-number">79</span>
         </div>
-    </div>
+    </section>
 
     <!-- Подвал -->
     <footer>
@@ -281,157 +363,5 @@
         <div>2026 © Империя Куртого Пидораса</div>
     </footer>
 
-    <!-- СКРИПТЫ -->
-    <script type="module">
-        // 1. Импортируем функции Firebase
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-
-        // 2. Конфигурация Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyAHZKQYe30wE_Fz76TxqW4lTARkHIMh7es",
-            authDomain: "aktep-chat.firebaseapp.com",
-            databaseURL: "https://aktep-chat-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "aktep-chat",
-            storageBucket: "aktep-chat.firebasestorage.app",
-            messagingSenderId: "286158389718",
-            appId: "1:286158389718:web:dbbce7385b80ec8435a477",
-            measurementId: "G-Q6TYN4TJ1C"
-        };
-
-        // 3. Инициализация Firebase
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
-
-        // 4. Данные участников
-        const participants = [
-            { name: 'Богдан', img: 'Богдан.png' },
-            { name: 'Ян', img: 'Ян.png' },
-            { name: 'Егор', img: 'Егор.png' },
-            { name: 'Стёпа', img: 'Стёпа.png' },
-            { name: 'Миша', img: 'Миша.png' },
-            { name: 'Диана', img: 'Диана.png' },
-            { name: 'Данил', img: 'Данил.png' },
-            { name: 'Илья', img: 'Илья.png' },
-            { name: 'Ярик', img: 'Ярик.png' }
-        ];
-
-        let currentCategory = '';
-        let currentBtnId = '';
-        let currentResultId = '';
-        let currentAvatarId = '';
-        
-        const modal = document.getElementById('votingModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const candidatesGrid = document.getElementById('candidatesGrid');
-
-        // Делаем функции глобальными для вызова из HTML (onclick)
-        window.openVoting = function(category, btnId, resultId, avatarId) {
-            currentCategory = category;
-            currentBtnId = btnId;
-            currentResultId = resultId;
-            currentAvatarId = avatarId;
-            
-            modalTitle.innerText = 'Номинация: ' + category;
-            candidatesGrid.innerHTML = '';
-
-            participants.forEach(person => {
-                const card = document.createElement('div');
-                card.className = 'candidate-card';
-                
-                card.innerHTML = `
-                    <img src="${person.img}" alt="${person.name}" class="candidate-img" onerror="this.src='https://ui-avatars.com/api/?name=${person.name}&background=111&color=ff8c00&size=220&font-size=0.33'">
-                    <div class="candidate-name">${person.name}</div>
-                    <div class="candidate-role">Участник канала</div>
-                    <button class="select-btn" onclick="castVote('${person.name}', '${person.img}')">ВЫБРАТЬ</button>
-                `;
-                
-                candidatesGrid.appendChild(card);
-            });
-
-            modal.classList.add('active');
-        }
-
-        window.closeModal = function() {
-            modal.classList.remove('active');
-        }
-
-        window.castVote = function(candidateName, candidateImg) {
-            const resultElement = document.getElementById(currentResultId);
-            if (resultElement) {
-                resultElement.innerText = `Вы проголосовали за: ${candidateName}`;
-                resultElement.classList.add('show');
-            }
-
-            const avatarContainer = document.getElementById(currentAvatarId);
-            if (avatarContainer) {
-                const avatarImg = avatarContainer.querySelector('img');
-                avatarImg.src = candidateImg;
-                avatarContainer.classList.add('show');
-            }
-
-            const btnElement = document.getElementById(currentBtnId);
-            if (btnElement) {
-                btnElement.innerText = 'ГОЛОС УЧТЕН';
-                btnElement.disabled = true;
-            }
-
-            // Отправка в Firebase
-            const votesRef = ref(database, 'klei_votes');
-            push(votesRef, {
-                nomination: currentCategory,
-                candidate: candidateName,
-                timestamp: new Date().toISOString()
-            }).then(() => {
-                console.log("Голос записан в Firebase!");
-            }).catch((error) => {
-                console.error("Ошибка: ", error);
-            });
-
-            closeModal();
-            alert(`Голос учтен!\n\nНоминация: ${currentCategory}\nВаш кандидат: ${candidateName}`);
-        }
-
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) closeModal();
-        });
-
-        // ==========================================
-        // ЛОГИКА ТАЙМЕРА (До 19 ноября, 03:00 МСК)
-        // ==========================================
-        function updateTimer() {
-            // Текущий год
-            let year = new Date().getFullYear();
-            // Задаем целевую дату (19 ноября, 03:00 по МСК, часовой пояс +03:00)
-            let targetDate = new Date(`November 19, ${year} 03:00:00 GMT+0300`);
-            
-            // Если 19 ноября в этом году уже прошло, ставим на следующий год
-            if (new Date() > targetDate) {
-                targetDate = new Date(`November 19, ${year + 1} 03:00:00 GMT+0300`);
-            }
-
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            if (distance < 0) {
-                document.getElementById("countdown").innerHTML = "<div class='time-box'><span>ГОЛОСОВАНИЕ</span><span>ЗАВЕРШЕНО</span></div>";
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = days.toString().padStart(2, '0');
-            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
-        }
-
-        // Запускаем таймер каждую секунду
-        setInterval(updateTimer, 1000);
-        updateTimer(); // Вызываем сразу, чтобы не было задержки в 1 сек.
-    </script>
 </body>
 </html>
